@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rental Details</title>
+</head>
+<body>
+<h2>Rental Event Details</h2>
+<p><strong>Event ID:</strong> <span th:text="${event.id}"></span></p>
+
+<h3>Customer Info</h3>
+<p th:text="${event.customerRenting.firstName + ' ' + event.customerRenting.lastName}"></p>
+<p th:text="${'License: ' + event.customerRenting.pilotLicense}"></p>
+
+<h3>Jet Info</h3>
+<p th:text="${event.jetRented.brand + ' ' + event.jetRented.model}"></p>
+<p th:text="${'Tail Number: ' + event.jetRented.tailNumber}"></p>
+
+<h3>Status</h3>
+<p><strong>Start:</strong> <span th:text="${event.rentalDate}"></span></p>
+<p><strong>Return:</strong> <span th:text="${event.returnDate != null ? event.returnDate : 'Not returned'}"></span></p>
+<p><strong>Cost:</strong> <span th:text="${event.totalCost}"></span></p>
+<p><strong>Status:</strong> <span th:text="${event.closed ? 'Completed' : 'Active'}"></span></p>
+
+<a th:href="@{/rentals}">Back to List</a>
+</body>
+</html>

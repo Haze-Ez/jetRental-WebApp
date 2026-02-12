@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+<h2>Search Results</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Seats</th>
+        <th>Price</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="jet : ${jets}">
+        <td th:text="${jet.brand}"></td>
+        <td th:text="${jet.model}"></td>
+        <td th:text="${jet.seats}"></td>
+        <td th:text="${jet.pricePerDay}"></td>
+        <td th:text="${jet.available ? 'Available' : 'Rented'}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/jets}">Back to Fleet</a> | <a th:href="@{/jets/filter}">New Search</a>
+</body>
+</html>

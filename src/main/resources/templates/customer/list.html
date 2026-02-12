@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer List</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>Customer List</h2>
+<a th:href="@{/customers/add}">Add New Customer</a>
+<br/><br/>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Pilot License</th>
+        <th>Country</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.firstName + ' ' + customer.lastName}"></td>
+        <td th:text="${customer.email}"></td>
+        <td th:text="${customer.pilotLicense}"></td>
+        <td th:text="${customer.countryCode}"></td>
+        <td>
+            <a th:href="@{/customers/{id}(id=${customer.id})}">Details</a> |
+            <a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a> |
+            <a th:href="@{/customers/delete/{id}(id=${customer.id})}"
+               onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Back to Home</a>
+</body>
+</html>

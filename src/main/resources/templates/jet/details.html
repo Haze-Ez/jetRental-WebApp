@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Jet Details</title></head>
+<body>
+<h2>Jet Details</h2>
+<p><strong>Brand:</strong> <span th:text="${jet.brand}"></span></p>
+<p><strong>Model:</strong> <span th:text="${jet.model}"></span></p>
+<p><strong>Tail Number:</strong> <span th:text="${jet.tailNumber}"></span></p>
+<p><strong>Seats:</strong> <span th:text="${jet.seats}"></span></p>
+<p><strong>Price/Day:</strong> <span th:text="${jet.pricePerDay}"></span></p>
+<p><strong>Status:</strong> <span th:text="${jet.available ? 'Available' : 'Rented'}"></span></p>
+<a th:href="@{/jets}">Back to List</a>
+</body>
+</html>

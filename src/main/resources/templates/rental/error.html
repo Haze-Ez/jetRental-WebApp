@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Error</title></head>
+<body>
+<h2 style="color: red;">Rental Processing Error</h2>
+<p th:text="${errorMessage}"></p>
+<a th:href="@{/rentals}">Back to Rentals</a>
+</body>
+</html>

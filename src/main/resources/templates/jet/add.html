@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Jet</title>
+</head>
+<body>
+<h2>Add New Jet</h2>
+<form th:action="@{/jets/add}" th:object="${jet}" method="post">
+    <label>Brand: <input type="text" th:field="*{brand}" required/></label><br/>
+    <label>Model: <input type="text" th:field="*{model}" required/></label><br/>
+    <label>Tail Number: <input type="text" th:field="*{tailNumber}" required/></label><br/>
+    <label>Seats: <input type="number" th:field="*{seats}" min="1" required/></label><br/>
+    <label>Price/Day: <input type="number" step="0.01" th:field="*{pricePerDay}" required/></label><br/>
+    <label>Available: <input type="checkbox" th:field="*{available}" checked/></label><br/>
+    <button type="submit">Save Jet</button>
+</form>
+<a th:href="@{/jets}">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Find a Jet</h1>
+<form th:action="@{/jets/filter}" method="post">
+    Min Seats: <input type="number" name="min" value="0"/><br/>
+    Max Seats: <input type="number" name="max" value="100"/><br/>
+    Max Price: <input type="number" name="price" value="10000"/><br/>
+    Brand: <input type="text" name="brand"/><br/>
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>

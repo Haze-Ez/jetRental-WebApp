@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rental Events</title>
+</head>
+<body>
+<h2>Rental Events</h2>
+<a th:href="@{/rentals/add}">New Rental</a>
+<br/><br/>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Jet</th>
+        <th>Customer</th>
+        <th>Start Date</th>
+        <th>Return Date</th>
+        <th>Total Cost</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${rentalEvents}">
+        <td th:text="${event.id}"></td>
+        <td th:text="${event.jetRented.brand + ' ' + event.jetRented.model}"></td>
+        <td th:text="${event.customerRenting.firstName + ' ' + event.customerRenting.lastName}"></td>
+        <td th:text="${event.rentalDate}"></td>
+        <td th:text="${event.returnDate != null ? event.returnDate : 'Not returned'}"></td>
+        <td th:text="${event.totalCost > 0 ? event.totalCost : '-'}"></td>
+        <td th:text="${event.closed ? 'Closed' : 'Active'}"></td>
+        <td>
+            <a th:href="@{/rentals/details/{id}(id=${event.id})}">Details</a> |
+            <span th:if="${!event.closed}">
+                        <a th:href="@{/rentals/return/{id}(id=${event.id})}">Return Jet</a>
+                    </span>
+            <span th:if="${event.closed}">
+                        Closed
+                    </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Back to Home</a>
+</body>
+</html>

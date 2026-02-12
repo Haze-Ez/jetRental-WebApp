@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Rental</title>
+</head>
+<body>
+<h2>Edit Rental Event</h2>
+<form th:action="@{/rentals/edit}" th:object="${rentalEvent}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+
+    <p><strong>Jet:</strong> <span th:text="${rentalEvent.jetRented.brand}"></span></p>
+    <p><strong>Customer:</strong> <span th:text="${rentalEvent.customerRenting.firstName}"></span></p>
+
+    <input type="hidden" th:field="*{jetRented}"/>
+    <input type="hidden" th:field="*{customerRenting}"/>
+
+    <label>Rental Date: <input type="date" th:field="*{rentalDate}"/></label><br/>
+    <label>Return Date: <input type="date" th:field="*{returnDate}"/></label><br/>
+    <label>Cost: <input type="number" step="0.01" th:field="*{totalCost}"/></label><br/>
+
+    <button type="submit">Update Event</button>
+</form>
+<a th:href="@{/rentals}">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Error</title></head>
+<body>
+<h2 style="color: red;">Customer Operation Failed</h2>
+<p th:text="${errorMessage}"></p>
+<a th:href="@{/customers}">Back to Customers</a>
+</body>
+</html>
