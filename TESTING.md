@@ -36,8 +36,6 @@ To run the tests manually:
 The project targets >80% line coverage.
 
 ### Coverage Screenshot
-*(Please place your coverage report screenshot here)*
-
 ![Test Coverage Report](test_coverage_screenshot.png)
 
 ### Key Metrics
